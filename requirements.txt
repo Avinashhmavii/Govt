@@ -1,1 +1,8 @@
 streamlit
+pandas
+gTTS
+fuzzywuzzy
+openai
+speechrecognition
+pyaudio
+python-Levenshtein
