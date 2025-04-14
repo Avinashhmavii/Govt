@@ -6,3 +6,5 @@ openai==1.73.0
 speechrecognition==3.14.2
 pyaudio==0.2.14
 python-Levenshtein==0.27.1
+pipwin
+portaudio
