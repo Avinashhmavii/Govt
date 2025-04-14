@@ -877,7 +877,7 @@ def main():
     with col_emblem[1]:  # Use the middle column for the emblem
         emblem_path = "gov_logo.jpg"
         if os.path.exists(emblem_path):
-            st.image(emblem_path, width=300, caption="")
+            st.image(emblem_path, width=150, caption="")
         else:
             st.warning("Maharashtra emblem image (maharashtra_emblem.jpg) not found. Please place it in the same directory as the script.")
     # Create three columns for layout: left (logo), middle (title), right (symbol)
@@ -885,24 +885,24 @@ def main():
 
     # Left column: Add konkan.jpg as logo
     with col1:
-        st.image("konkan.jpg", width=500)  # Adjust width as needed
+        st.image("konkan.jpg", width=1000)  # Adjust width as needed
 
     # Middle column: Add the title
     with col2:
         st.markdown(
-            '<h1 style="color: #FF8C69; text-align: center;">कोकण भवन कार्यालय निर्देशिका</h1>',
+            '<h3 style="color: #FF8C69; text-align: center;">कोकण भवन कार्यालय निर्देशिका</h3>',
             unsafe_allow_html=True
         )
     # Right column: Add symbol.jpg
     with col3:
-        st.image("symbol.jpg", width=500)  # Adjust width as needed
+        st.image("symbol.jpg", width=1000)  # Adjust width as needed
 
     st.write("Select an input method to find office details.")
 
     # Input method selection
-    input_method = st.radio("Choose input method:", ("Text Input (Dropdown)", "Voice Input"))
+    input_method = st.radio("Choose input method:", ("Text Input(Dropdown) मजकूर इनपुट (ड्रॉपडाउन)", "Voice Input व्हॉइस इनपुट"))
 
-    if input_method == "Text Input (Dropdown)":
+    if input_method == "Text Input(Dropdown) मजकूर इनपुट (ड्रॉपडाउन)":
         st.subheader("Select by Department or Name")
 
         # Section 1: Department-wise Dropdown
