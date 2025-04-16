@@ -862,6 +862,43 @@ def get_audio_file(text):
 
 # Streamlit app
 def main():
+    # Check if user is authenticated
+    if 'authenticated' not in st.session_state:
+        st.session_state.authenticated = False
+    
+    # Show login form if not authenticated
+    if not st.session_state.authenticated:
+        # Create a container for the login form
+        login_container = st.empty()
+        
+        with login_container.container():
+            # Add government logo above login
+            col_emblem = st.columns([1, 2, 1])
+            with col_emblem[1]:
+                emblem_path = "gov_logo.jpg"
+                if os.path.exists(emblem_path):
+                    st.image(emblem_path, width=150, caption="")
+                else:
+                    st.warning("Government logo image not found.")
+            
+            # Login form
+            st.markdown("### Government of Maharashtra")
+            st.markdown("### AI-Enabled Intelligent Receptionist")
+            st.markdown("---")
+            st.markdown("#### Admin Login")
+            user_id = st.text_input("User ID", value="admin", disabled=True)
+            password = st.text_input("Password", type="password")
+            
+            if st.button("Login"):
+                if password == "5555":
+                    st.session_state.authenticated = True
+                    login_container.empty()  # Clear the login form
+                    st.rerun()  # Rerun the app to show the main content
+                else:
+                    st.error("Incorrect password. Please try again.")
+            return  # Stop execution until authenticated
+    
+    # Only show the main content after authentication
     st.markdown(
         """
         <style>
